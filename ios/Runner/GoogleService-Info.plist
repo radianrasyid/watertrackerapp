@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>890314411848-hatl2cudnail1j91vq9tcpjd3cnnpmnk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.890314411848-hatl2cudnail1j91vq9tcpjd3cnnpmnk</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>890314411848-s4qpo84s0scdtgf292i82cm3ol4acb6l.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBBEVokOzfT5CdMyqlPJfHoM2SnukMVsDk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>890314411848</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.watertrackerapp</string>
+	<key>PROJECT_ID</key>
+	<string>radianprojies</string>
+	<key>STORAGE_BUCKET</key>
+	<string>radianprojies.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:890314411848:ios:5658231492c86af4d62d7d</string>
+	<key>DATABASE_URL</key>
+	<string>https://radianprojies-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "890314411848",
+    "firebase_url": "https://radianprojies-default-rtdb.firebaseio.com",
+    "project_id": "radianprojies",
+    "storage_bucket": "radianprojies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890314411848:android:62260fb764abdad5d62d7d",
+        "android_client_info": {
+          "package_name": "com.example.watertrackerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890314411848-aqtldpti5l1fst04jrt0leorfr4o47p2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1X0lG5oZPV57Jy1NJSaFal0O3GCBblWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890314411848-aqtldpti5l1fst04jrt0leorfr4o47p2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

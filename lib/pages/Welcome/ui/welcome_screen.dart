@@ -88,7 +88,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.bounceInOut)
                           : Navigator.pushNamedAndRemoveUntil(
-                              context, '/main', (route) => false);
+                              context, '/signin', (route) => false);
                     },
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,13 +10,23 @@ import 'package:watertrackerapp/pages/Main/bloc/bottom_nav_bar_bloc.dart';
 import 'package:watertrackerapp/pages/Main/ui/main_screen.dart';
 import 'package:watertrackerapp/pages/Profile/bloc/profile_bloc.dart';
 import 'package:watertrackerapp/pages/Profile/ui/profile_parent_screen.dart';
+import 'package:watertrackerapp/pages/RegisterAcc/bloc/register_acc_bloc.dart';
+import 'package:watertrackerapp/pages/RegisterAcc/ui/register_account_screen.dart';
 import 'package:watertrackerapp/pages/Setting/bloc/setting_bloc.dart';
 import 'package:watertrackerapp/pages/Setting/ui/setting_screen.dart';
+import 'package:watertrackerapp/pages/SignIn/bloc/sign_in_bloc.dart';
+import 'package:watertrackerapp/pages/SignIn/ui/signin_screen.dart';
 import 'package:watertrackerapp/pages/Splash/ui/splash_screen.dart';
 import 'package:watertrackerapp/pages/Welcome/ui/welcome_screen.dart';
 import 'package:watertrackerapp/utils/constants/color_lib.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -50,6 +61,16 @@ class MyApp extends StatelessWidget {
           create: (context) => SettingBloc(),
           child: const SettingScreen(),
         ),
+        BlocProvider(
+          create: (context) => SignInBloc(),
+          lazy: false,
+          child: const SignInScreen(),
+        ),
+        BlocProvider(
+          create: (context) => RegisterAccBloc(),
+          lazy: false,
+          child: const RegisterAccScreen(),
+        ),
       ],
       child: ScreenUtilInit(
         builder: (context, child) {
@@ -63,7 +84,9 @@ class MyApp extends StatelessWidget {
             home: const SplashScreen(),
             routes: {
               '/welcome': (context) => const WelcomeScreen(),
-              '/main': (context) => const MainScreeen()
+              '/main': (context) => const MainScreeen(),
+              '/signin': (context) => const SignInScreen(),
+              '/register': (context) => const RegisterAccScreen(),
             },
           );
         },
