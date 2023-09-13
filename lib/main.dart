@@ -3,17 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watertrackerapp/pages/Analysis/bloc/analysis_bloc.dart';
-import 'package:watertrackerapp/pages/Analysis/ui/analysis_screen.dart';
 import 'package:watertrackerapp/pages/Home/bloc/home_bloc.dart';
-import 'package:watertrackerapp/pages/Home/ui/home_screen.dart';
 import 'package:watertrackerapp/pages/Main/bloc/bottom_nav_bar_bloc.dart';
 import 'package:watertrackerapp/pages/Main/ui/main_screen.dart';
 import 'package:watertrackerapp/pages/Profile/bloc/profile_bloc.dart';
-import 'package:watertrackerapp/pages/Profile/ui/profile_parent_screen.dart';
 import 'package:watertrackerapp/pages/RegisterAcc/bloc/register_acc_bloc.dart';
 import 'package:watertrackerapp/pages/RegisterAcc/ui/register_account_screen.dart';
 import 'package:watertrackerapp/pages/Setting/bloc/setting_bloc.dart';
-import 'package:watertrackerapp/pages/Setting/ui/setting_screen.dart';
 import 'package:watertrackerapp/pages/SignIn/bloc/sign_in_bloc.dart';
 import 'package:watertrackerapp/pages/SignIn/ui/signin_screen.dart';
 import 'package:watertrackerapp/pages/Splash/ui/splash_screen.dart';
@@ -41,35 +37,28 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => BottomNavBarBloc(),
           lazy: false,
-          child: const MainScreeen(),
         ),
         BlocProvider(
           create: (context) => ProfileBloc(),
           lazy: false,
-          child: const ProfileParentScreen(),
         ),
         BlocProvider(
           create: (context) => HomeBloc(),
           lazy: false,
-          child: const HomeScreen(),
         ),
         BlocProvider(
           create: (context) => AnalysisBloc(),
-          child: const AnalysisScreen(),
         ),
         BlocProvider(
           create: (context) => SettingBloc(),
-          child: const SettingScreen(),
         ),
         BlocProvider(
           create: (context) => SignInBloc(),
           lazy: false,
-          child: const SignInScreen(),
         ),
         BlocProvider(
           create: (context) => RegisterAccBloc(),
           lazy: false,
-          child: const RegisterAccScreen(),
         ),
       ],
       child: ScreenUtilInit(

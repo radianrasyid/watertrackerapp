@@ -115,10 +115,6 @@ class SignInScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Navigator.pushNamed(context, '/main');
-                        print(currentState.email);
-                        print(currentState.password);
-                        print(currentState.isPassVisible);
                         SignInController(context: context)
                             .handleSignIn('email');
                       },

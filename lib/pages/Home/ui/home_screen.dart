@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,11 +16,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final data =
+        ModalRoute.of(context)?.settings.arguments as Map<String, User>;
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
               children: [
                 Row(
@@ -40,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 4.h,
                         ),
                         Text(
-                          'Radian',
+                          (data['username'] as User).displayName as String,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontSize: 20.sp, fontWeight: FontWeight.w600),
@@ -48,8 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     Container(
-                      margin: EdgeInsets.only(right: 5),
+                      margin: const EdgeInsets.only(right: 5),
                       child: Badge(
+                        label: const Text('3'),
                         child: IconButton(
                           onPressed: () {},
                           icon: const Icon(Icons.notifications_rounded,
@@ -57,7 +61,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: IconButton.styleFrom(
                               backgroundColor: AppColor.softWhite),
                         ),
-                        label: Text('3'),
                       ),
                     )
                   ],
@@ -162,28 +165,28 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Positioned(
                               bottom: 0,
-                              child: Image.asset(
-                                'assets/img/splashwater1.png',
-                                color: Color.fromARGB(255, 0, 179, 255),
-                                fit: BoxFit.cover,
-                              ),
                               height:
                                   MediaQuery.of(context).size.width / 2 * 0.5,
+                              child: Image.asset(
+                                'assets/img/splashwater1.png',
+                                color: const Color.fromARGB(255, 0, 179, 255),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             Positioned(
                               bottom: 0,
-                              child: Image.asset(
-                                'assets/img/splashwater2.png',
-                                color: Color.fromARGB(255, 15, 179, 255),
-                                fit: BoxFit.cover,
-                              ),
                               height:
                                   MediaQuery.of(context).size.width / 2 * 0.5,
+                              child: Image.asset(
+                                'assets/img/splashwater2.png',
+                                color: const Color.fromARGB(255, 15, 179, 255),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             Align(
                               alignment: Alignment.bottomCenter,
                               child: Padding(
-                                padding: EdgeInsets.only(bottom: 15),
+                                padding: const EdgeInsets.only(bottom: 15),
                                 child: Text(
                                   '500ml',
                                   style: TextStyle(
@@ -206,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(16),
                           color: Colors.white,
                         ),
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 15, right: 15, top: 10, bottom: 20),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -232,23 +235,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
-                                  child: Row(
-                                    children: [
-                                      Icon(Icons.coffee_rounded,
-                                          color: Colors.red),
-                                      SizedBox(
-                                        width: 14.w,
-                                      ),
-                                      Text(
-                                        '100ml',
-                                        style: TextStyle(
-                                            color: AppColor.softBlack,
-                                            fontSize: 14.sp,
-                                            fontWeight: FontWeight.w600),
-                                      )
-                                    ],
-                                  ),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.coffee_rounded,
+                                        color: Colors.red),
+                                    SizedBox(
+                                      width: 14.w,
+                                    ),
+                                    Text(
+                                      '100ml',
+                                      style: TextStyle(
+                                          color: AppColor.softBlack,
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w600),
+                                    )
+                                  ],
                                 ),
                                 Text(
                                   '10%',
@@ -266,8 +267,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       bottom: 0,
                       right: 0,
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 12),
                         width: MediaQuery.of(context).size.width / 3,
                         height: 76.h,
                         decoration: BoxDecoration(
@@ -300,7 +301,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 40.h,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print((data['username'] as User).displayName);
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColor.mainBg,
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 14, horizontal: 36.5),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      elevation: 1),
                   child: Text(
                     'Go To Dashboard',
                     style: TextStyle(
@@ -308,14 +319,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w600,
                         color: Colors.white),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.mainBg,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 14, horizontal: 36.5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      elevation: 1),
                 ),
                 SizedBox(
                   height: 20.h,

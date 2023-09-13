@@ -30,6 +30,13 @@
             {
               "client_id": "890314411848-aqtldpti5l1fst04jrt0leorfr4o47p2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "890314411848-hatl2cudnail1j91vq9tcpjd3cnnpmnk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.watertrackerapp"
+              }
             }
           ]
         }

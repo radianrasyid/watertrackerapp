@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:watertrackerapp/pages/SignIn/bloc/sign_in_bloc.dart';
 
+import '../../utils/constants/color_lib.dart';
+
 class SignInController {
   final BuildContext context;
 
@@ -77,11 +79,15 @@ class SignInController {
                   duration: const Duration(milliseconds: 3000),
                 );
               }
-              var user = credential.user;
+              User user = credential.user as User;
               if (user != null) {
                 // GET VERIFIED USER FROM DATABASE
+                var name = await SecureStorage.storage
+                    .write(key: 'user_name', value: user.displayName);
+
                 Navigator.pushNamedAndRemoveUntil(
-                    context, '/main', (route) => false);
+                    context, '/main', (route) => false,
+                    arguments: {"username": user as User});
               } else {
                 return SnackBar(
                   content: const Text('Account not found, please sign up'),
